@@ -87,7 +87,7 @@ Determined, you keep moving forward.  You lose your footing once or twice more i
 (print:$knollId)
 
 
-	</tw-passagedata><tw-passagedata pid="7" name="Knoll Endstate" tags="" position="895,699.3333333333333" size="100,100">(display:(either:&quot;Knoll Puncture&quot;, &quot;Knoll Death&quot;))</tw-passagedata><tw-passagedata pid="8" name="House Progress" tags="" position="1968,651.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)[(set:$health to $health -10)](display:&quot;Calendar&quot;)
+	</tw-passagedata><tw-passagedata pid="7" name="Knoll Endstate" tags="" position="895,699.3333333333333" size="100,100">(display:(either:&quot;Knoll Puncture&quot;, &quot;Knoll Death&quot;))</tw-passagedata><tw-passagedata pid="8" name="House Progress" tags="" position="1968,651.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)[(set:$health to $health -20)](display:&quot;Calendar&quot;)
 (display:&quot;House Pain&quot;)the additional rain has (set: $houseHalt to (ds: &quot;halted&quot;))(set: $houseSlow to (ds: &quot;slowed&quot;)) (set:$damageId to (either: $houseHalt,$houseSlow)) (print:$damageId) progress and now your (set:$coughMother to &quot;mother has a bad cough from the constant draft.&quot;)(print: $coughMother) 
 
 
@@ -106,7 +106,7 @@ Determined, you keep moving forward.  You lose your footing once or twice more i
 
 
 
-</tw-passagedata><tw-passagedata pid="10" name="Home Choice" tags="" position="1636.3333333333333,373.6666666666667" size="100,100">{(display:&quot;Feb 1315&quot;)(if:$liveId is $liveLostCow)[(set:$cow to $cow -1)] (if:$liveId is $liveLostBoth)[(set:$cow to $cow -2)](display:&quot;Calendar&quot;)
+</tw-passagedata><tw-passagedata pid="10" name="Home Choice" tags="" position="1636.3333333333333,373.6666666666667" size="100,100">{(display:&quot;Feb 1315&quot;)(set:$food to $food-1)(if:$liveId is $liveLostCow)[(set:$cow to $cow -1)] (set:$health to $health -10)(if:$liveId is $liveLostBoth)[(set:$cow to $cow -2)](display:&quot;Calendar&quot;)
 
 (if:$houseId is $houseWash)[Since your home has washed away your family must decide what to do.  Your home is made of wattle and daub: just mud, straw, and sticks, and required the assistance of neighbors to complete when it was initially built.  Since the manor is in ruins it is up to your family to complete the project.
 
@@ -141,7 +141,7 @@ The village fields were full of winter grain, the major staple of your diet. (pr
 (set: $liveLostBoth to (ds: &quot;Both cows escaped the barn and drowned in the flood.&quot;))
 
 (set: $liveId to (either: $liveLostCow, $liveLostBoth, $liveSafe))
-(print: $liveId)}</tw-passagedata><tw-passagedata pid="14" name="rebuilt by summer" tags="" position="1957.3333333333333,515.3333333333335" size="100,100">{(display:&quot;Mar 1315&quot;)(if:$houseId is $houseWash)[(set:$food to $food -6)](display:&quot;Calendar&quot;) (if:$houseId is $houseDamage)[The family has opted to live in the old, drafty barn during construction.  Besides the cows, planting seeds and additional food stores are housed in the loft within. Eager for better shelter and to be away from the stench of animal waste, everyone works hard on repairs.
+(print: $liveId)}</tw-passagedata><tw-passagedata pid="14" name="rebuilt by summer" tags="" position="1959,515.3333333333335" size="100,100">{(display:&quot;Mar 1315&quot;)(if:$houseId is $houseWash)[(set:$food to $food -6)](display:&quot;Calendar&quot;) (if:$houseId is $houseDamage)[The family has opted to live in the old, drafty barn during construction.  Besides the cows, planting seeds and additional food stores are housed in the loft within. Eager for better shelter and to be away from the stench of animal waste, everyone works hard on repairs.
 
 Additional possessions, including 6 months worth of food are in the house.  &quot;Removing everything will just slow us down, we&#39;ll build around it,&quot; says father. You...
 |links&gt;[(link: &quot;agree.&quot;)[(replace: ?links)[leave things in [[place]]]]
@@ -161,13 +161,13 @@ As the Baron is surveying the grain fields, you approach with your mother...
 (if:$fieldId is $fieldWash)[Lord Whymouth is pensive, half of the winter crop is  ruined. Profits from the crop were to repay money he borrowed from the local convent. He suggests that you ask the Smyths,one of your neighbors, as they may still have room. You are hesitant,  your father really does not like Mr. Smyth because he cheats at dice.  Do you [[agree]] or [[disagree]] to move?]
 (if:$fieldId is $fieldSafe)[Lord Whymouth is in a jovial mood.  The winter crops are safe and the profits they bring will be used to pay off a debt. He gives your mother a [[handfull of coins-&gt;House Rebuild]].]}
 
-</tw-passagedata><tw-passagedata pid="16" name="happily agree" tags="" position="1370.3333333333333,674" size="100,100">{(display:&quot;Feb 1315&quot;)(display:&quot;Calendar&quot;)(set:$agree to (ds:&quot;How neighborly of you!  
+</tw-passagedata><tw-passagedata pid="16" name="happily agree" tags="" position="1370.3333333333333,674" size="100,100">{(display:&quot;Feb 1315&quot;)(set:$food to $food -4)(display:&quot;Calendar&quot;)(set:$agree to (ds:&quot;How neighborly of you!  
 
 The Smyths are grateful for your family&#39;s hospitality, especially since the rain continues to fall and temperatures stay cool [[late into the summer-&gt;Display Late Summer]]&quot;))
 (set:$homeOutcome to (either:$agree))
 (print:$agree)}
 
-</tw-passagedata><tw-passagedata pid="17" name="fervently protest" tags="" position="1373.6666666666667,541" size="100,100">{(display:&quot;Feb 1315&quot;)(display:&quot;Calendar&quot;)(set:$protest to (ds:&quot;Your father&#39;s decision is set.  You are unenthused; and your decision has placed you on bad terms with the Smyths.
+</tw-passagedata><tw-passagedata pid="17" name="fervently protest" tags="" position="1373.6666666666667,541" size="100,100">{(display:&quot;Feb 1315&quot;)(display:&quot;Calendar&quot;)(set:$food to $food -4)(set:$protest to (ds:&quot;Your father&#39;s decision is set.  You are unenthused; and your decision has placed you on bad terms with the Smyths.
 
 The Smyths appreciate your family&#39;s hospitality, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].&quot;))
 (set:$homeOutcome to (either:$protest))
@@ -272,10 +272,10 @@ In embarrassment, your father moves the family to the [[barn-&gt;Barn Move]]]}
 
 Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].}
 
-</tw-passagedata><tw-passagedata pid="33" name="House Rebuild" tags="" position="1518.3333333333335,688.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)(if:$responseId is $notTooBad)[(set:$coins to $coins -14)]
+</tw-passagedata><tw-passagedata pid="33" name="House Rebuild" tags="" position="1518.3333333333335,688.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)(set:$food to $food-2)(if:$responseId is $notTooBad)[(set:$coins to $coins -14)]
 (if:$responseId is $disturbedCoins)[(set:$coins to $coins -10)](if(display:&quot;Calendar&quot;)The additional rain makes rebuilding a wattle and daub house nearly impossible, so masons were hired to build a stone house instead.  It was expensive, but an improvement on your previous home.
 
-Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].}</tw-passagedata><tw-passagedata pid="34" name="Fever Endstate" tags="" position="2518.3333333333335,387.4722226460775" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
+Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].}</tw-passagedata><tw-passagedata pid="34" name="Fever Endstate" tags="" position="2520,387.4722226460775" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
   &lt;tr&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
@@ -307,13 +307,13 @@ The job is difficult due to the soggy conditions, and plenty of firewood is burn
 The grain rotted in the field. 
 
 The weather continued to work against you. Should you [[ration what you have]], [[forage in the woods]], or [[buy from a merchant]]?}
-</tw-passagedata><tw-passagedata pid="38" name="Dad Mold" tags="" position="3183.666666666666,866.3333333333334" size="100,100">{(display:&quot;Oct 1316&quot;)(set: $health to $health-5)(display:&quot;Calendar&quot;)(set:$dadMold to &quot;Your father contracts St. Anthony&#39;s fire and&quot;)(print:$dadMold) (set: $dieMold to (ds:&quot;dies slowly&quot;)) (set: $liveMold to (ds:&quot;live, but lose his hands and feet&quot;)) (set: $moldId to (either: $dieMold, $liveMold))(print: $moldId).
+</tw-passagedata><tw-passagedata pid="38" name="Dad Mold" tags="" position="3185.3333333333326,866.3333333333334" size="100,100">{(display:&quot;Oct 1316&quot;)(set: $health to $health-5)(display:&quot;Calendar&quot;)(set:$dadMold to &quot;Your father contracts St. Anthony&#39;s fire and&quot;)(print:$dadMold) (set: $dieMold to (ds:&quot;dies slowly&quot;)) (set: $liveMold to (ds:&quot;live, but lose his hands and feet&quot;)) (set: $moldId to (either: $dieMold, $liveMold))(print: $moldId).
 
 The moldy grain poisoned his system, causing painful seizures, mania, and gangrenous limbs which rot and fall off.
 
 Fearful of the grain, your family decides to [[forage-&gt;continue to forage]] or [[buy goods-&gt;try to buy goods]] to survive.}
 
-</tw-passagedata><tw-passagedata pid="39" name="Display Late Summer" tags="" position="2557.666666666667,529.6666666666666" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)
+</tw-passagedata><tw-passagedata pid="39" name="Display Late Summer" tags="" position="2557.666666666667,529.6666666666666" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)(set:$food to $food -4)
 
 The family takes an inventory:
 
@@ -345,7 +345,7 @@ You contracted murrain from the dead cow&#39;s meat.  After suffering from fever
 [[Play Again-&gt;Start]]}</tw-passagedata><tw-passagedata pid="42" name="ration what you have" tags="" position="2520.333333333333,1258.6666666666665" size="100,100">{(display:&quot;Aug 1315&quot;)(if:$barnFood is 2)[(set:$food to 2)]
 (if:$barnFood is 4)[(set:$food to 4)]
 (if:$barnFood is 6)[(set:$food to 6)]
-(display:&quot;Calendar&quot;)In order to make it through into the year your daily intake is cut (display:&quot;Barn Ration&quot;)  Hopefully, the manor can make up for the dirth [[next year-&gt;make up for this year]]} </tw-passagedata><tw-passagedata pid="43" name="forage in the woods" tags="" position="2467,953.6666666666665" size="100,100">{(display:&quot;July 1315&quot;)(if:$houseId is $houseSafe)[(set:$food to $food +5)](else:)[(set:$food to $food +3)](display:&quot;Calendar&quot;)
+(display:&quot;Calendar&quot;)In order to make it through into the year your daily intake is cut (display:&quot;Barn Ration&quot;)  Hopefully, the manor can make up for the dirth [[next year-&gt;make up for this year]]} </tw-passagedata><tw-passagedata pid="43" name="forage in the woods" tags="" position="2467,953.6666666666665" size="100,100">{(display:&quot;July 1315&quot;)(if:$houseId is $houseSafe)[(set:$food to $food +3)](else:)[(set:$food to $food +3)](display:&quot;Calendar&quot;)
 Cooler Spring and Summer temperatures means there are fewer wild plants to harvest; and the damaging rains means more competition from neighbors. (if:$houseId is $houseSafe)[Mrs. Smyth&#39;s cough has worsened, and she could not help, but by working with the rest of the Smyths the families are able to find enough to feed 8 people into the New Year.] (else:)[Your family is barely able to get enough to tide you till Christmas.]  Then you can start planting and [[make up for this year]].}</tw-passagedata><tw-passagedata pid="44" name="buy from a merchant" tags="" position="2595.666666666666,938.6666666666667" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)
 All market prices have risen. 1 gold coin will buy 1 month&#39;s worth of food for your family. (if:$houseId is $houseSafe)[By including the Smyths you will have to pay 3 gold coins for 1 month&#39;s worth of food.]
 
@@ -391,7 +391,7 @@ The seed spouted, but the shoots were either drowned in the mud or eaten by hung
 Should you (set:$forage to (ds:&quot;[[continue to forage]]?&quot;))(set:$forageId to (either:$forage))(print:$forageId)
 Or [[try to buy goods]]?
 (if: $fieldId is $fieldSafe)[Or [[rely of the  roasted grain-&gt;eat the moldy grain?]]]}
-</tw-passagedata><tw-passagedata pid="51" name="eat the seed" tags="" position="3140.6666666666665,423.6666666666666" size="100,100">(display:&quot;May 1316&quot;)(display:&quot;Calendar&quot;)
+</tw-passagedata><tw-passagedata pid="51" name="eat the seed" tags="" position="3142.333333333333,423.6666666666666" size="100,100">(display:&quot;May 1316&quot;)(display:&quot;Calendar&quot;)
 
 The seed did not last long, and now you have nothing to plant.  Should you [[go the the market-&gt;try to buy goods]] or [[forage-&gt;continue to forage]] </tw-passagedata><tw-passagedata pid="52" name="continue to forage" tags="" position="2905.666666666666,725.3333333333333" size="100,100">{(display:&quot;May 1316&quot;)(if:$forageId is $forage)[(set:$food to $food + 1)](display:&quot;Calendar&quot;)
 Hungry people and animals alike have picked the fields and forests bare.  The only things left to gather are roots, bark, and unsavory bugs. To supplement this diet your family boils your shoes, belts, caps and other leather goods to make them [[soft enough to chew-&gt;eats boiled leather]].]  
@@ -418,7 +418,7 @@ The family notices that the grain is a little musty, but you decide to eat it an
 	&lt;th&gt;(color:white)[-]&lt;/th&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
 	&lt;th&gt;(color:white)[-]&lt;/th&gt;
-    &lt;th&gt;(css: &quot;font-size: 70%;&quot;)[(color:gold)[January 1317]]&lt;/th&gt;
+    &lt;th&gt;(css: &quot;font-size: 70%;&quot;)[(color:yellow)[January 1317]]&lt;/th&gt;
   &lt;/tr&gt;
 &lt;/table&gt; }(set: $health to $health-5)(set:$food to 0)(display:&quot;Calendar&quot;)You survive the Great Famine.  Boiled leather is not nutritious, but it helped to fill emptiness in your belly.
 
@@ -486,7 +486,7 @@ You have nothing else to buy or barter with.  Do you [[beg]] or [[steal]]?</tw-p
 (set:$theftId to (either: $fcaught))
 (print:$theftId)
 
-[[Play Again-&gt;Start]]}</tw-passagedata><tw-passagedata pid="65" name="Murrain Endstate" tags="" position="3438.9999999999995,828.0000000000001" size="100,100">(display:(either:&quot;Murrain Endstate You&quot;, &quot;Murrain Endstate Mom&quot;))</tw-passagedata><tw-passagedata pid="66" name="Cannibal" tags="" position="3471.9999999999995,1092.3333333333333" size="100,100">(display: (either:&quot;Cannibal Live&quot;, &quot;Cannibal Die&quot;))</tw-passagedata><tw-passagedata pid="67" name="No" tags="" position="3660.333333333333,993.3333333333335" size="100,100">{(display:&quot;Dec 1316&quot;)(set: $health to $health-5)(set:$food to 1)(display:&quot;Calendar&quot;)You gather all the leather you can find -shoes, belts, caps- and boil it for your family (if: $houseId is $houseSafe)[and the Smyths] to [[eat-&gt;eats boiled leather]].}</tw-passagedata><tw-passagedata pid="68" name="Cannibal Live" tags="" position="3972.666666666667,798.6666666666665" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
+[[Play Again-&gt;Start]]}</tw-passagedata><tw-passagedata pid="65" name="Murrain Endstate" tags="" position="3438.9999999999995,828.0000000000001" size="100,100">(display:(either:&quot;Murrain Endstate You&quot;, &quot;Murrain Endstate Mom&quot;))</tw-passagedata><tw-passagedata pid="66" name="Cannibal" tags="" position="3471.9999999999995,1092.3333333333333" size="100,100">(display: (either:&quot;Cannibal Live&quot;, &quot;Cannibal Die&quot;))</tw-passagedata><tw-passagedata pid="67" name="No" tags="" position="3660.333333333333,993.3333333333335" size="100,100">{(display:&quot;Dec 1316&quot;)(set: $health to $health-5)(set:$food to 1)(display:&quot;Calendar&quot;)You gather all the leather you can find -shoes, belts, caps- and boil it for your family (if: $houseId is $houseSafe)[and the Smyths] to [[eat-&gt;eats boiled leather]].}</tw-passagedata><tw-passagedata pid="68" name="Cannibal Live" tags="" position="3971.0000000000005,798.6666666666665" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
   &lt;tr&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
@@ -496,7 +496,7 @@ You have nothing else to buy or barter with.  Do you [[beg]] or [[steal]]?</tw-p
 	&lt;th&gt;(color:white)[-]&lt;/th&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
 	&lt;th&gt;(color:white)[-]&lt;/th&gt;
-    &lt;th&gt;(css: &quot;font-size: 70%;&quot;)[(color:gold)[January 1317]]&lt;/th&gt;
+    &lt;th&gt;(css: &quot;font-size: 70%;&quot;)[(color:yellow)[January 1317]]&lt;/th&gt;
   &lt;/tr&gt;
 &lt;/table&gt; }(set: $health to $health-5)(set:$food to 0)(display:&quot;Calendar&quot;)You survive the Great Famine
 
@@ -518,7 +518,7 @@ You are weak and destitute, but alive.
 &lt;/table&gt; }
 
 
-</tw-passagedata><tw-passagedata pid="70" name="Cows" tags="" position="154.33333333333323,400.97222248713183" size="100,100">&lt;img src=&quot;https://66.media.tumblr.com/ad6a1ac38c92594674bf8c1f1a0b7127/c913a17aa8551304-69/s540x810/5293cd8c6b077e703b5ed31e30eac9b8d1e66e0e.png&quot; height=&quot;40&quot; width=&quot;40&quot;&gt; (css: &quot;font-size: 70%;&quot;)[(set:$cow to $cow)(if: $cow&lt; 1)[(set: $cow to 0)] (if: $cow&gt; 2)[(set: $cow to 2)](print: $cow) Cows]</tw-passagedata><tw-passagedata pid="71" name="Food" tags="" position="144.33333333333331,537.6388891537983" size="100,100">&lt;img src=&quot;https://66.media.tumblr.com/211d5af0f529f607a0e0dc96b74fbdba/0788f560cf66e4b2-ec/s540x810/433b613e09b4a6b37605d50a8bdd570cf7eb5f2a.jpg&quot; height=&quot;30&quot; width=&quot;40&quot;&gt;(css: &quot;font-size: 70%;&quot;)[(set:$food to $food)(print:$food) Months Food]</tw-passagedata><tw-passagedata pid="72" name="Coins" tags="" position="132.66666666666669,664.3055558204651" size="100,100">&lt;img src=&quot;https://66.media.tumblr.com/484c15e438df99fa081282f85b8b2363/d7592ce5f1c789c8-c0/s500x750/dee3891a06fac719f8bfd48deaebec84b5cf4d7c.png&quot; height=&quot;35&quot; &gt;(css: &quot;font-size: 70%;&quot;)[(set:$coins to $coins)(print:$coins) Coins]</tw-passagedata><tw-passagedata pid="73" name="Tree Puncture" tags="" position="773.3333333333335,956.1111195882163" size="100,100">{(display:&quot;Feb 1315&quot;)(set:$health to (either: 90, 80))(display:&quot;Calendar&quot;)(set:$puncture to (ds:&quot;You are turned and tumbled in the churning waters.  But somehow, miraculously, you are pushed up against the bank and drag yourself out of the torrent. Your ankle is throbbing and you have a few gashes
+</tw-passagedata><tw-passagedata pid="70" name="Cows" tags="" position="154.33333333333323,400.97222248713183" size="100,100">&lt;img src=&quot;https://66.media.tumblr.com/ad6a1ac38c92594674bf8c1f1a0b7127/c913a17aa8551304-69/s540x810/5293cd8c6b077e703b5ed31e30eac9b8d1e66e0e.png&quot; height=&quot;40&quot; width=&quot;40&quot;&gt; (css: &quot;font-size: 70%;&quot;)[(set:$cow to $cow)(if: $cow&lt; 1)[(set: $cow to 0)] (if: $cow&gt; 2)[(set: $cow to 2)](print: $cow) Cows]</tw-passagedata><tw-passagedata pid="71" name="Food" tags="" position="144.33333333333331,537.6388891537983" size="100,100">&lt;img src=&quot;https://66.media.tumblr.com/211d5af0f529f607a0e0dc96b74fbdba/0788f560cf66e4b2-ec/s540x810/433b613e09b4a6b37605d50a8bdd570cf7eb5f2a.jpg&quot; height=&quot;30&quot; width=&quot;40&quot;&gt;(css: &quot;font-size: 70%;&quot;)[(set:$food to $food)(print:$food) Months Food]</tw-passagedata><tw-passagedata pid="72" name="Coins" tags="" position="132.66666666666669,664.3055558204651" size="100,100">&lt;img src=&quot;https://66.media.tumblr.com/484c15e438df99fa081282f85b8b2363/d7592ce5f1c789c8-c0/s500x750/dee3891a06fac719f8bfd48deaebec84b5cf4d7c.png&quot; height=&quot;35&quot; &gt;(css: &quot;font-size: 70%;&quot;)[(set:$coins to $coins)(print:$coins) Coins]</tw-passagedata><tw-passagedata pid="73" name="Tree Puncture" tags="" position="771.6666666666669,956.1111195882163" size="100,100">{(display:&quot;Feb 1315&quot;)(set:$health to (either: 90, 80))(display:&quot;Calendar&quot;)(set:$puncture to (ds:&quot;You are turned and tumbled in the churning waters.  But somehow, miraculously, you are pushed up against the bank and drag yourself out of the torrent. Your ankle is throbbing and you have a few gashes
 
 When the waters subside you limp home. [[What will you discover.-&gt;Home]]?&quot;))
 
@@ -575,7 +575,7 @@ When the waters subside you limp home. [[What will you discover.-&gt;Home]]?&quo
 
 (set:$knollEndId to (either:$puncture))
 
-(print:$knollEndId)}</tw-passagedata><tw-passagedata pid="77" name="Fever Recover" tags="" position="2637.666666666667,377.4722226460775" size="100,100">{(display:&quot;July 1315&quot;)(if:$feverEndId is $feverRecover)[(set:$health to $health+10)](display:&quot;Calendar&quot;)
+(print:$knollEndId)}</tw-passagedata><tw-passagedata pid="77" name="Fever Recover" tags="" position="2637.666666666667,377.4722226460775" size="100,100">{(display:&quot;July 1315&quot;)(if:$feverEndId is $feverRecover)[(set:$health to $health+5)](display:&quot;Calendar&quot;)
 
 (set:$feverRecover to (ds:&quot;After a few more days of bedrest the fever breaks, and you begin to feel much better. 
 
