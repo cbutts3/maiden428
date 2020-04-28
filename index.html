@@ -173,7 +173,7 @@ The Smyths appreciate your family&#39;s hospitality, especially since the rain k
 (set:$homeOutcome to (either:$protest))
 (print:$protest)}
 
-</tw-passagedata><tw-passagedata pid="18" name="late summer" tags="" position="2570.3333333333326,250.33333333333334" size="100,100">(if:$feverId is $feve)[(display:&quot;Fever Endstate&quot;)]
+</tw-passagedata><tw-passagedata pid="18" name="late summer" tags="" position="2571.999999999999,250.33333333333334" size="100,100">(if:$feverId is $fever)[(display:&quot;Fever Endstate&quot;)]
 (if:$feverId is $miasmaHave)[(display:&quot;Fever Recover&quot;)]
 
 
@@ -191,7 +191,7 @@ With few options, the family [[moves into the barn-&gt;Barn Move]]. }
 </tw-passagedata><tw-passagedata pid="20" name="House Pain" tags="" position="1836,651.6666666666666" size="100,100">{(set:$fever to (ds:&quot;your have come down with a fever.&quot;))(set:$miasmaHave to (ds:&quot;You too are suffering from a Miasma that came through the manor after the flood.&quot;))(set:$feverId to (either:$fever or $miasmaHave))
 (print:$feverId)}
 
-</tw-passagedata><tw-passagedata pid="21" name="Summer Field Food" tags="" position="2560.333333333333,788.6666666666666" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)
+</tw-passagedata><tw-passagedata pid="21" name="Summer Field Food" tags="" position="2558.6666666666665,788.6666666666666" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)
 Though the long summers have ensured a variety of crops, local peasants rely on grain as a major source of food for themselves and livestock.  The grain is traditionally left to ripen and dry in the field.}
 
 {(if: $fieldId is $fieldWash)[Since your fields were washed away there is nothing to harvest. Should you [[ration what you have]], [[forage in the woods]], or [[buy from a merchant]]?]
@@ -275,7 +275,7 @@ Your family is grateful, especially since the rain keeps falling and the tempera
 </tw-passagedata><tw-passagedata pid="33" name="House Rebuild" tags="" position="1518.3333333333335,688.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)(if:$responseId is $notTooBad)[(set:$coins to $coins -14)]
 (if:$responseId is $disturbedCoins)[(set:$coins to $coins -10)](if(display:&quot;Calendar&quot;)The additional rain makes rebuilding a wattle and daub house nearly impossible, so masons were hired to build a stone house instead.  It was expensive, but an improvement on your previous home.
 
-Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].}</tw-passagedata><tw-passagedata pid="34" name="Fever Endstate" tags="" position="2518.3333333333335,385.8055559794108" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
+Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].}</tw-passagedata><tw-passagedata pid="34" name="Fever Endstate" tags="" position="2518.3333333333335,387.4722226460775" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
   &lt;tr&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
@@ -321,9 +321,7 @@ The family takes an inventory:
 
 [[What can the fields supply-&gt;Summer Field Food]]}
 
-Date:June 1315 
-Supplies:6
-Health:7</tw-passagedata><tw-passagedata pid="40" name="Health" tags="" position="174.33333333333334,271.99999999999983" size="100,100">{(set: $health to $health)
+</tw-passagedata><tw-passagedata pid="40" name="Health" tags="" position="174.33333333333334,271.99999999999983" size="100,100">{(set: $health to $health)
 (css: &quot;font-size: 70%;&quot;)[Health] 
 (print: &#39;&lt;meter value=&quot;&#39; + (text: $health) + &#39;&quot; min=&quot;0&quot; max=&quot;100&quot;&gt;&lt;/meter&gt;&#39;)}
 
@@ -359,8 +357,8 @@ Do you wish to purchace?
 [[No. We will steal the food-&gt;Steal the food]]}
 </tw-passagedata><tw-passagedata pid="45" name="hold a grudge" tags="" position="1781.3333333333333,983.3333333333334" size="100,100">{(display:&quot;Mar 1315&quot;)(display:&quot;Calendar&quot;)
 (set:$smythGrudge to &quot;With limited options your father moves the family to the [[barn-&gt;Barn Move]].&quot;)
-(print:$smythGrudge)}</tw-passagedata><tw-passagedata pid="46" name="make up for this year" tags="" position="2918.9999999999995,267" size="100,100">{(display:&quot;Jan 1316&quot;)(set:$health to $health - 20)(display:&quot;Calendar&quot;)
-1316 began as the previous year, with rain. (if:$responseId is $$disturbed,$moveSmythFamily, $moveSmyth)[Your mother&#39;s cough has vanished and returned several times over the Winter.]
+(print:$smythGrudge)}</tw-passagedata><tw-passagedata pid="46" name="make up for this year" tags="" position="2918.9999999999995,265.3333333333333" size="100,100">{(display:&quot;Jan 1316&quot;)(set:$health to $health - 20)(display:&quot;Calendar&quot;)
+1316 began as the previous year, with rain. Your mother&#39;s cough has vanished and returned several times over the Winter.
 
 You have crop seed ready to plant, but should you?  From your father&#39;s experience he estimates that the ground is too soggy to plow, and the seed could wash away.  However, the family is low on food.  Do you think it best to [[plant the seed]] and hope for a harvest or [[eat the seed]] to stave off hunger? }</tw-passagedata><tw-passagedata pid="47" name="Yes, Purchase" tags="" position="2775.666666666666,856.9999999999999" size="100,100">(set:$coins to $coins)
 (set: $name to (prompt: &quot;You may buy up to 10 months of food:&quot;, &quot;&quot;))
@@ -396,13 +394,9 @@ Or [[try to buy goods]]?
 </tw-passagedata><tw-passagedata pid="51" name="eat the seed" tags="" position="3140.6666666666665,423.6666666666666" size="100,100">(display:&quot;May 1316&quot;)(display:&quot;Calendar&quot;)
 
 The seed did not last long, and now you have nothing to plant.  Should you [[go the the market-&gt;try to buy goods]] or [[forage-&gt;continue to forage]] </tw-passagedata><tw-passagedata pid="52" name="continue to forage" tags="" position="2905.666666666666,725.3333333333333" size="100,100">{(display:&quot;May 1316&quot;)(if:$forageId is $forage)[(set:$food to $food + 1)](display:&quot;Calendar&quot;)
-(if:$forageId is $forage)[Hungry people and animals alike have picked the fields and forests bare.  The only things left to gather are roots, bark, and unsavory bugs.
+Hungry people and animals alike have picked the fields and forests bare.  The only things left to gather are roots, bark, and unsavory bugs. To supplement this diet your family boils your shoes, belts, caps and other leather goods to make them [[soft enough to chew-&gt;eats boiled leather]].]  
 
-(else:)[Hungry people and animals alike have picked the fields and forests bare.  The only things left to gather are roots, bark, and unsavory bugs. To supplement this diet your family boils your shoes, belts, caps and other leather goods to make them [[soft enough to chew-&gt;eats boiled leather]].]  
-
-
-
-[[You try for the markets instead.-&gt;try to buy goods]]]}</tw-passagedata><tw-passagedata pid="53" name="try to buy goods" tags="" position="3035.6666666666665,714.6666666666667" size="100,100">{(display:&quot;May 1316&quot;)(if:$giveCowId is $giveTwoCow)[(set:$cow to 0)] (if:$keepCowId is $keepCowOne)[(set:$cow to 0)] (if:$keepCowId is $keepCowTwo)[(set:$cow to 1)](display:&quot;Calendar&quot;)Food prices have quintupled, your family sells its few household possessions for food. 
+[[Or, you try for the markets instead.-&gt;try to buy goods]]]}</tw-passagedata><tw-passagedata pid="53" name="try to buy goods" tags="" position="3035.6666666666665,714.6666666666667" size="100,100">{(display:&quot;May 1316&quot;)(if:$giveCowId is $giveTwoCow)[(set:$cow to 0)] (if:$keepCowId is $keepCowOne)[(set:$cow to 0)] (if:$keepCowId is $keepCowTwo)[(set:$cow to 1)](display:&quot;Calendar&quot;)Food prices have quintupled, your family sells its few household possessions for food. 
 
 A few weeks later you spend the last $coins coins.
 
@@ -426,7 +420,7 @@ The family notices that the grain is a little musty, but you decide to eat it an
 	&lt;th&gt;(color:white)[-]&lt;/th&gt;
     &lt;th&gt;(css: &quot;font-size: 70%;&quot;)[(color:gold)[January 1317]]&lt;/th&gt;
   &lt;/tr&gt;
-&lt;/table&gt; }(set: $health to $health-5)(set:$food to 0)(display:&quot;Calendar&quot;)You survive the Great Famine
+&lt;/table&gt; }(set: $health to $health-5)(set:$food to 0)(display:&quot;Calendar&quot;)You survive the Great Famine.  Boiled leather is not nutritious, but it helped to fill emptiness in your belly.
 
 You are weak and destitute, but alive.
 
