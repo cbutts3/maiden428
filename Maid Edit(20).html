@@ -87,7 +87,7 @@ Determined, you keep moving forward.  You lose your footing once or twice more i
 (print:$knollId)
 
 
-	</tw-passagedata><tw-passagedata pid="7" name="Knoll Endstate" tags="" position="895,699.3333333333333" size="100,100">(display:(either:&quot;Knoll Puncture&quot;, &quot;Knoll Death&quot;))</tw-passagedata><tw-passagedata pid="8" name="House Progress" tags="" position="1968,651.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)(if:$injuryId is $ankle)[(set:$health to $health -5)](if:$injuryId is $fever)[(set:$health to $health -10)](display:&quot;Calendar&quot;)
+	</tw-passagedata><tw-passagedata pid="7" name="Knoll Endstate" tags="" position="895,699.3333333333333" size="100,100">(display:(either:&quot;Knoll Puncture&quot;, &quot;Knoll Death&quot;))</tw-passagedata><tw-passagedata pid="8" name="House Progress" tags="" position="1968,651.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)[(set:$health to $health -10)](display:&quot;Calendar&quot;)
 (display:&quot;House Pain&quot;)the additional rain has (set: $houseHalt to (ds: &quot;halted&quot;))(set: $houseSlow to (ds: &quot;slowed&quot;)) (set:$damageId to (either: $houseHalt,$houseSlow)) (print:$damageId) progress and now your (set:$coughMother to &quot;mother has a bad cough from the constant draft.&quot;)(print: $coughMother) 
 
 
@@ -106,7 +106,7 @@ Determined, you keep moving forward.  You lose your footing once or twice more i
 
 
 
-</tw-passagedata><tw-passagedata pid="10" name="Home Choice" tags="" position="1636.3333333333333,375.33333333333337" size="100,100">{(display:&quot;Feb 1315&quot;)(if:$liveId is $liveLostCow)[(set:$cow to $cow -1)] (if:$liveId is $liveLostBoth)[(set:$cow to $cow -2)](display:&quot;Calendar&quot;)
+</tw-passagedata><tw-passagedata pid="10" name="Home Choice" tags="" position="1636.3333333333333,373.6666666666667" size="100,100">{(display:&quot;Feb 1315&quot;)(if:$liveId is $liveLostCow)[(set:$cow to $cow -1)] (if:$liveId is $liveLostBoth)[(set:$cow to $cow -2)](display:&quot;Calendar&quot;)
 
 (if:$houseId is $houseWash)[Since your home has washed away your family must decide what to do.  Your home is made of wattle and daub: just mud, straw, and sticks, and required the assistance of neighbors to complete when it was initially built.  Since the manor is in ruins it is up to your family to complete the project.
 
@@ -161,54 +161,35 @@ As the Baron is surveying the grain fields, you approach with your mother...
 (if:$fieldId is $fieldWash)[Lord Whymouth is pensive, half of the winter crop is  ruined. Profits from the crop were to repay money he borrowed from the local convent. He suggests that you ask the Smyths,one of your neighbors, as they may still have room. You are hesitant,  your father really does not like Mr. Smyth because he cheats at dice.  Do you [[agree]] or [[disagree]] to move?]
 (if:$fieldId is $fieldSafe)[Lord Whymouth is in a jovial mood.  The winter crops are safe and the profits they bring will be used to pay off a debt. He gives your mother a [[handfull of coins-&gt;House Rebuild]].]}
 
-</tw-passagedata><tw-passagedata pid="16" name="happily agree" tags="" position="1372,675.6666666666666" size="100,100">{(display:&quot;Feb 1315&quot;)(display:&quot;Calendar&quot;)(set:$agree to (ds:&quot;How neighborly of you!  
+</tw-passagedata><tw-passagedata pid="16" name="happily agree" tags="" position="1370.3333333333333,674" size="100,100">{(display:&quot;Feb 1315&quot;)(display:&quot;Calendar&quot;)(set:$agree to (ds:&quot;How neighborly of you!  
 
-The Smyths are grateful for your family&#39;s hospitality, especially since the rain continues to fall and temperatures stay cool [[late into the summer-&gt;late summer]]&quot;))
+The Smyths are grateful for your family&#39;s hospitality, especially since the rain continues to fall and temperatures stay cool [[late into the summer-&gt;Display Late Summer]]&quot;))
 (set:$homeOutcome to (either:$agree))
 (print:$agree)}
 
 </tw-passagedata><tw-passagedata pid="17" name="fervently protest" tags="" position="1373.6666666666667,541" size="100,100">{(display:&quot;Feb 1315&quot;)(display:&quot;Calendar&quot;)(set:$protest to (ds:&quot;Your father&#39;s decision is set.  You are unenthused; and your decision has placed you on bad terms with the Smyths.
 
-The Smyths appreciate your family&#39;s hospitality, especially since the rain keeps falling and the temperature stays cool into [[late summer]].&quot;))
+The Smyths appreciate your family&#39;s hospitality, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].&quot;))
 (set:$homeOutcome to (either:$protest))
 (print:$protest)}
 
-</tw-passagedata><tw-passagedata pid="18" name="late summer" tags="" position="2570.3333333333326,250.33333333333334" size="100,100">(if:$feverId is $feverWorse)[(display:&quot;Fever Endstate&quot;)]
-(if:$feverId is $feverBeter)[(display:&quot;Fever Recover&quot;)]
-(if:$feverId is $miasmaHave) [(display:&quot;Fever Recover&quot;)]
-(if:$feverId is $miasmaNot) [(display:&quot;Display Late Summer&quot;)]
+</tw-passagedata><tw-passagedata pid="18" name="late summer" tags="" position="2570.3333333333326,250.33333333333334" size="100,100">(if:$feverId is $feve)[(display:&quot;Fever Endstate&quot;)]
+(if:$feverId is $miasmaHave)[(display:&quot;Fever Recover&quot;)]
 
-</tw-passagedata><tw-passagedata pid="19" name="stay and help your father" tags="" position="2365.3333333333335,565" size="100,100">{(display:&quot;Mar 1315&quot;)(set:$food to $food-2)(if:$feverId is $feverBetter)[(set:$health to $health +10)](if:$feverId is $feverWorse)[(set:$health to $health -15)] (if:$miasmaId is $miasmaHave)[(set:$health to $health -5)](if:$miasmaId is $miasmaNot)[(set:$health to $health +5)]
+
+</tw-passagedata><tw-passagedata pid="19" name="stay and help your father" tags="" position="2367,565" size="100,100">{(display:&quot;Mar 1315&quot;)(set:$food to $food-2)[(set:$health to $health -15)]]
 (display:&quot;Calendar&quot;)
 
 You pushed yourself as hard as possible, but all efforts were futile.  The house cannot be repaired.  The more it rains, the more the walls crumble and the roof caves in. 
 
 {(set:$momCoughWorse to (ds:&quot;has subsided.&quot;))(set:$momCoughSame to (ds:&quot;still lingers.&quot;))(set:$momCoughId to (either:$momCoughWorse,$momCoughSame))
 
-(set:$feverWorse to (ds:&quot;is much worse, leaving you confined to your bed in the barn.&quot;))(set:$feverBetter to (ds:&quot;broke, but the cuts have not healed.&quot;))
-
-(set:$miasmaHave to (ds:&quot;You too are suffering from a milder form.&quot;))
-(set:$miasmaNot to (ds:&quot;You have escaped the disease.&quot;))
-(set:$feverId to (either:$feverBetter, $feverWorse, $miasmaHave, $miasmaNot))
-
-(if:$injuryId is $fever)[Your fever (print:$feverId)]
-
-
-(if:$treeDisplayId is $slipTreeDisplay)[Many residents of the manor that were caught in the flood waters are now suffering from a Miasma - diarrhea, vomiting, cramps, and dehydration.(print:$miasmaId)]
-
-(if:$knollId is $knollDanger)[Many residents of the manor that were caught in the flood waters are now suffering from a Miasma - diarrhea, vomiting, cramps, and dehydration.(print:$miasmaId)]
-
 Your mother&#39;s cough (print:$momCoughId)}
 
 With few options, the family [[moves into the barn-&gt;Barn Move]]. }
 
-</tw-passagedata><tw-passagedata pid="20" name="House Pain" tags="" position="1836,651.6666666666666" size="100,100">{(set:$fever to (ds:&quot;your ankle has healed but the gashes did not, and you have a slight fever.&quot;))
-(set:$ankle to (ds:&quot;the cuts have healed but your ankle injury is causing pain.&quot;))
-(set:$injuryId to (either:$fever, $ankle))}
-
-{(if:$knollEndId is $puncture)[You try your best, (print:$injuryId). Furthermore, ] 
-(if:$treeEndId is $puncture)[You try your best, (print:$injuryId). Furthermore, ] 
-(else:)[The family worked hard to rebuild, and was making good progress but ]}
+</tw-passagedata><tw-passagedata pid="20" name="House Pain" tags="" position="1836,651.6666666666666" size="100,100">{(set:$fever to (ds:&quot;your have come down with a fever.&quot;))(set:$miasmaHave to (ds:&quot;You too are suffering from a Miasma that came through the manor after the flood.&quot;))(set:$feverId to (either:$fever or $miasmaHave))
+(print:$feverId)}
 
 </tw-passagedata><tw-passagedata pid="21" name="Summer Field Food" tags="" position="2560.333333333333,788.6666666666666" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)
 Though the long summers have ensured a variety of crops, local peasants rely on grain as a major source of food for themselves and livestock.  The grain is traditionally left to ripen and dry in the field.}
@@ -269,7 +250,7 @@ Your father meets with Mr. Smyth to relay the Baron&#39;s suggestion.}{ (if:$liv
 (set:$displeased to (ds:&quot;The Baron is displeased with your response and vows not to assist  you going forward.  Your father is disappointed in your choice.&quot;))(set:$surprised to (ds:&quot;The Baron is surprised at your response.  After providing your reasoning, he thanks you for your honesty and gives you a coin for your trouble. Your father is proud of your choice, the money will help, but is not enough to rebuild a house.&quot;))(set:$baronResponseId to (either:$displeased, $surprised))
 (print:$baronResponseId)}
 
-With limited options, your family decides to [[move into the barn-&gt;Barn Move]].</tw-passagedata><tw-passagedata pid="30" name="Summer House Food" tags="" position="2568,645.3333333333334" size="100,100">{(if:$houseGoodId is$foodSafe)[(set:$food to $food + $barnFood)] to (either:2, 4, 6))}
+With limited options, your family decides to [[move into the barn-&gt;Barn Move]].</tw-passagedata><tw-passagedata pid="30" name="Summer House Food" tags="" position="2568,645.3333333333334" size="100,100">{(set:$barnFood to (either:2, 4, 6))(if:$houseGoodId is$foodSafe)[(set:$food to $food + $barnFood)]  }
 {(if:$houseId is $houseDamage)[(if: $houseGoodId is $foodSpoil)[None of the food from the house survived since your family opted not to transfer it into the barn.] (if:$houseGoodId is$foodSafe)[(print:$barnFood) months of food from the house survived becuase you decided to store it in the barn.]]
 
 (if:$houseId is $houseSafe)[All of the food stored in your home survived.  This will feed your parents and yourself for 6 months.]
@@ -289,12 +270,12 @@ In embarrassment, your father moves the family to the [[barn-&gt;Barn Move]]]}
 
 {Your family tries to clean the barn the best they can and fill in the drafty walls with mud,sticks, and small stones. 
 
-Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer]].}
+Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].}
 
 </tw-passagedata><tw-passagedata pid="33" name="House Rebuild" tags="" position="1518.3333333333335,688.6666666666666" size="100,100">{(display:&quot;Mar 1315&quot;)(if:$responseId is $notTooBad)[(set:$coins to $coins -14)]
 (if:$responseId is $disturbedCoins)[(set:$coins to $coins -10)](if(display:&quot;Calendar&quot;)The additional rain makes rebuilding a wattle and daub house nearly impossible, so masons were hired to build a stone house instead.  It was expensive, but an improvement on your previous home.
 
-Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer]].}</tw-passagedata><tw-passagedata pid="34" name="Fever Endstate" tags="" position="2518.3333333333335,385.8055559794108" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
+Your family is grateful, especially since the rain keeps falling and the temperature stays cool into [[late summer-&gt;Display Late Summer]].}</tw-passagedata><tw-passagedata pid="34" name="Fever Endstate" tags="" position="2518.3333333333335,385.8055559794108" size="100,100">{{&lt;table style=&quot;width:100%&quot;&gt;
   &lt;tr&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
     &lt;th&gt;(color:white)[-]&lt;/th&gt;
@@ -332,7 +313,7 @@ The moldy grain poisoned his system, causing painful seizures, mania, and gangre
 
 Fearful of the grain, your family decides to [[forage-&gt;continue to forage]] or [[buy goods-&gt;try to buy goods]] to survive.}
 
-</tw-passagedata><tw-passagedata pid="39" name="Display Late Summer" tags="" position="2557.666666666667,533" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)
+</tw-passagedata><tw-passagedata pid="39" name="Display Late Summer" tags="" position="2557.666666666667,529.6666666666666" size="100,100">{(display:&quot;July 1315&quot;)(display:&quot;Calendar&quot;)
 
 The family takes an inventory:
 
